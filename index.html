@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plagiarism Checker</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #CDFCF6;
+            padding: 50px;
+            height: 100vh;
+        }
+        form {
+            background: #F5EFFF;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 500px;
+            margin: auto;
+            box-shadow: 0 0 15px black;
+        }
+        input[type=file], input[type=submit] {
+            margin: 10px 0;
+            padding: 8px;
+            width: 100%;
+            
+        }
+        input[type=submit] {
+            background: #007BFF;
+            color: white;
+            width: 300px;
+            border: none;
+            justify-content: center;
+            display: flex;
+        }
+        .dd{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dd">
+    <form action="/check" method="post" enctype="multipart/form-data">
+        <h2>Upload Document to Check for Plagiarism</h2>
+        <label>Upload File (.docx):</label>
+        <input type="file" name="upload" required><br>
+        <input type="submit" value="Check Plagiarism">
+    </form>
+    </div>
+</body>
+</html>
