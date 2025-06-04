@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plagiarism Result</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 30px;
+            background: #C9D6DF;
+        }
+        .result {
+            background: white;
+            text-align: center;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+        mark{
+            background-color: aqua;
+        }
+        span {
+            font-weight: bold;
+        }
+        .text{
+            padding: 30px;
+            font-size: 24px;
+        }
+        #container {
+            background: #C9D6DF;
+            border-radius: 8px;
+            width: 420px;
+            padding: 50px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 500px;
+        }
+        #circle-progress {
+            position: relative;
+            height: 250px;
+            width: 250px;
+            border-radius: 50%;
+            background: conic-gradient(rgb(222, 4, 4) 0deg, #ededed 0deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #circle-progress::before {
+            content: "";
+            position: absolute;
+            width: 210px;
+            height: 210px;
+            border-radius: 50%;
+            background: #C9D6DF;
+        }
+        .progress-value {
+            position: relative;
+            font-size: 50px;
+            color: rgb(208, 4, 4);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="circle-progress">
+            <span class="progress-value">0%</span>
+        </div>
+        <span class="text"><strong>Matched With:</strong> {{ match_file }}</span>
+    </div>
+
+    <div class="result">
+        <h2>Plagiarism Result</h2>
+        <p><strong>Matched With:</strong> {{ match_file }}</p>
+        <p><strong>Plagiarism Percentage:</strong> {{ result }}%</p>
+        <hr>
+        <h3>Highlighted Document</h3>
+        <div style="white-space: pre-wrap;">{{ highlighted|safe }}</div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            const result = parseInt("{{ result }}"); 
+            const circlepro = document.getElementById("circle-progress");
+            const progressvalue = document.querySelector(".progress-value");
+
+            let start = 0;
+            const speed = 30; 
+
+            const progress = setInterval(() => {
+                if (start <= result) {
+                    progressvalue.textContent = `${start}%`;
+                    const angle = start * 3.6;
+                    circlepro.style.background = `conic-gradient(rgb(222, 4, 4) ,${angle}deg, #ededed 0deg)`;
+                    start++;
+                } else {
+                    clearInterval(progress);
+                }
+            }, speed);
+        };
+    </script>
+</body>
+</html>
