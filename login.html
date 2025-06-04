@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Plagiarism Checker</title>
+    <style>
+        .main{
+            text-align: center;
+            color: black;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #C9D6DF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .head{
+            text-align: center; 
+            font-size: 30px;
+            font-weight: bold;
+            padding-top: 0px;
+        }
+        form {
+            background-color: #F0F5F9;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            width: 500px;
+        }
+        .us{
+            padding-bottom: 15px;
+            font-weight: bold;
+        }
+        #inp{
+            border-radius: 10px;
+            margin-right: 20px;
+            width: 350px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+        }
+        input[type=submit] {
+            background: #2b909b;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 11px;
+            width: 150px;
+            font-size: 20px;
+        }
+        .button:hover{
+            background-color: #A66CFF;
+        }
+        p {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-container">
+    <h1 class="main">Plagiarism Checker</h1>
+    <form method="post" action="/login">
+        <h2 class="head">Login</h2>
+        <label class="us">Username:</label><br><br>
+        <input type="text" name="username" placeholder="Enter the UserName" id="inp"><br><br>
+        <label class="us">Password:</label><br><br>
+        <input type="password" name="password" placeholder="Enter the Password" id="inp"><br><br>
+        <div style="text-align: center;"><br>
+        <input type="submit" class="button us" value="Submit">
+    </div>
+    </form>
+</div>
+</body>
+</html>
